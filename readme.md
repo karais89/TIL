@@ -17,7 +17,10 @@
 ### gollum 설치
 
 ### pow 설치 및 제거
-
+```
+curl get.pow.cx | sh
+curl get.pow.cx/uninstall.sh | sh
+```
 ### 사용법
 
 ### anvil 설치
