@@ -15,12 +15,33 @@
 [gollum](https://github.com/gollum/gollum), [pow](http://pow.cx) 와 [anvil](http://anvilformac.com)을 사용한다.
 
 ### gollum 설치
+```
+$ [sudo] gem install gollum
+```
 
 ### pow 설치 및 제거
 ```
 curl get.pow.cx | sh
 curl get.pow.cx/uninstall.sh | sh
 ```
-### 사용법
+
+#### 사용법
+
+#### wiki 폴더에(in ~/Sites/wiki/) config.ru 파일 생성
+```
+require "gollum/app"
+
+Precious::App.set(:gollum_path, File.dirname(__FILE__))
+Precious::App.set(:wiki_options, {})
+run Precious::App
+```
+
+#### 링크 연결
+```
+cd ~/.pow
+ln -s ~/Sites/wiki myapp
+```
+
+myapp.dev로 접속하면 자동으로 연결이 되면서 접속 된다.
 
 ### anvil 설치
