@@ -88,3 +88,20 @@ t2.micro 같은 경우 시간당 0.02달러 한국돈으로 20원? 게임방 생
 아주 재미있고 특이한 인스턴스가 있음. 엄청난 컴퓨터를 아마존 웹 서비스가 보유하고 있음. (노는 컴퓨터가 항상 존재함)
 
 노는 컴퓨터가 많으면 저렴. 노는 컴퓨터가 없으면 가격이 쎔
+
+## EC2 인스턴스 장치설정
+
+Number of instances = 생성하는 인스턴스 개수 1로 설정
+Purchasing option Request Spot Instances 스팟 인스턴스를 하고 싶으면 체크(디폴트 체크 해제)
+Shutdown behavior = stop (인스턴스일시정지), ternimate(인스턴스 삭제)
+Monitoring = 체크시 돈이 부과된다.
+
+Add Storage
+
+EBS
+
+Size 8 기본값 30기가 까지는 무료. 35기가 하면 유료
+
+Volume Type : SSD가 훨씬 빠르겟죠? Magrtice보다
+
+Delete on Termination 컴퓨터가 삭제되면 알아서 저장장치도 삭제됨. 체크해제하면 컴퓨터는 삭제되지만 하드는 삭제안됨. 기본값은 체크
