@@ -149,3 +149,27 @@ Create a new key pair로 비밀번호 발급 받을 수 있음 그리고 Downloa
 http://www.netsarang.co.kr/
 
 좋네.. pem 바로 쓸 수 있음 (putty에서는 pem을 ppk로 변경해서 인식해야되는데.)
+
+apache를 설치할 예정.
+
+apache를 직접 설치하기에는 어려운 일임.. 그래서 우분투라는 운영체제에서 쉽게 설치할수 있는 기능이 있음.
+
+sudo apt-get을 사용해서..
+
+```
+sudo apt-get update
+sudo apt-get install apache2
+```
+
+설치하고 자신의 도메인 주소로 접속해서 화면이 뜨면 정상작동됨
+
+자신의 도메인 주소는. AWS의 Public DNS임.
+
+
+```
+cd /var/www/html
+sudo rm index.html
+sudo nano index.html
+```
+
+[nano설명] (https://namu.wiki/w/nano)
