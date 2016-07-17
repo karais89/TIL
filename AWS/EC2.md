@@ -631,3 +631,89 @@ http://pyrasis.com/book/TheArtOfAmazonWebServices/Chapter18
 Health Check = 정기적으로 사용자의 서버가 죽었는지 안죽었는지 체크
 
 일단은 만들고 DNS Name으로 접속하면 ELB로 접속할 수 있다.
+
+### ELB 적용
+
+로드밸런스를 만들었는데 일단 그 로드밸런스는 비어있음.
+
+인스턴스를 만들고 웹서버를 설치할 거고 하나의 인스턴스를 더 만들어서 부하 발생기를 만들것.
+
+* 웹서버
+* 부하발생기
+
+웹서버 Apache, PHP 설치
+```
+sudo apt-get update;
+sudo apt-get install apache2;
+sudo apt-get install php5;
+```
+
+부하발생기에는 
+```
+sudo apt-get update;
+sudo apt-get install apache2-utils
+```
+
+부하발생기에서 웹서버로 엄청난 트래픽을 보내서 힘들게 만들것.
+
+웹서버만 설치하면 안힘들어짐. 그래서 php를 설치할 예정. 간단한 코딩을해서 일부러 헛일을 하게 만들것임.
+
+이제 우리가 php 애플리케이션을 하나 만들거고..
+
+index.php 생성
+```
+cd /var/www/html
+sudo nano index.php
+```
+
+index.php 내용
+```
+Hello AWS
+<?php
+for($i=0; $i<10000000; $i++){
+ 
+}
+?>
+```
+
+웹서버는 굉장히 가벼우니 일부러 php를 깔고 헛일을 하도록 코딩을 한것.
+
+여러분이 웹서버의 주소로 접속하면 빈 공백이 나오면 된거임. 부하발생기를 이용해서 웹서버에 접속할것임.
+
+```
+ab -n 100 -c 1 http://54.238.246.130/index.php
+ab -n 1000 -c 10 http://54.238.246.130/index.php
+ab -n 1000 -c 50 http://54.238.246.130/index.php
+```
+
+접속이 시작됨. top 명령어를 통해서 우리의 컴퓨터의 상태를 볼 수 있음.
+
+부하가 얼마나 발생하는지 보여주고 있음. 이러한 상황에서 우리의 ELB 가 출동하면 어떨까?
+
+일단 ELB를 사용하려면 웹서버가 한개면 의미가 없음 한개를 더 만든다.
+
+기존의 웹서버 인스턴스를 이미지로 만듬. create Image를 만들고 AMIS를 이용해 인스턴스를 만든다.
+
+이렇게 만든 인스턴스가 웹서버와 완전히 동일한 인스턴스다. ELB의 인스턴스 탭을 누르고 
+
+우리가 만든 인스턴스 2개를 선택하고 확인을 누름 그러면 우리가 만든 인스턴스가 ELB에 붙는거임.
+
+ELB로 접속하는 방법 = DNS Name임. DNS Name으로 접속하면 됨. 사용자들이 접속하면 이 ELB에 접속하게 되는 거고
+
+이 ELB가 각각의 웹서버로 접속함.
+
+웹서버에서 사용자가 접속하는지 로그를 볼수 있음
+
+```
+sudo tail -f /var/log/apache2/access.log
+```
+
+접속을 하면 로딩할때마다 로그에 변화가 생김.
+
+ELB를 이용하면 두개의 웹서버가 서로 주거나 받거나 함 (완벽한 부하분산이 되나 보네.)
+
+```
+ab -n 100 -c 1 ELB주소
+ab -n 1000 -c 10 ELB주소
+ab -n 1000 -c 50 ELB주소
+```
