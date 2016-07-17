@@ -526,9 +526,9 @@ amis에서 오른쪽 누르고 lanuch를 누르면 인스턴스를 선택할수 
 이러다가도 속도가 느려질 수 도 있다.
 그럼 컴퓨터 1대를 더 장만.
 
-컴퓨터1(WebServer)
-컴퓨터2(Database)
-컴퓨터3(Middleware)
+* 컴퓨터1(WebServer)
+* 컴퓨터2(Database)
+* 컴퓨터3(Middleware)
 
 3대의 컴퓨터로 일을 함.
 
@@ -536,32 +536,32 @@ amis에서 오른쪽 누르고 lanuch를 누르면 인스턴스를 선택할수 
 
 새로운 컴퓨터를 장만하고 거기에 데이터베이스 설치.
 
-컴퓨터1(WebServer)
-컴퓨터2(Database Master)
-컴퓨터3(Middleware)
-컴퓨터4(Database Slave) Database Master의 내용 복제
+* 컴퓨터1(WebServer)
+* 컴퓨터2(Database Master)
+* 컴퓨터3(Middleware)
+* 컴퓨터4(Database Slave) Database Master의 내용 복제
 
 미들웨어에서 읽기는 Database Slave 쓰기는 Database Master에서.
 
 이 상황에서도 컴퓨터가 느리다?? 그럼 컴퓨터를 한대 더 장만
 
 
-컴퓨터1(WebServer)
-컴퓨터2(Database Master)
-컴퓨터3(Middleware)
-컴퓨터4(Database Slave1) Database Master의 내용 복제
-컴퓨터5(Database Slave2) Database Master의 내용 복제
+* 컴퓨터1(WebServer)
+* 컴퓨터2(Database Master)
+* 컴퓨터3(Middleware)
+* 컴퓨터4(Database Slave1) Database Master의 내용 복제
+* 컴퓨터5(Database Slave2) Database Master의 내용 복제
 
 그래도 느려진다?
 
 소위 샤딩이라 하는..
 
-컴퓨터1(WebServer)
-컴퓨터2(Database Master1) 1~1000번 사용자
-컴퓨터3(Middleware)
-컴퓨터4(Database Slave1) Database Master의 내용 복제
-컴퓨터5(Database Slave2) Database Master의 내용 복제
-컴퓨터6(Database Master2) 2000~3000번 사용자
+* 컴퓨터1(WebServer)
+* 컴퓨터2(Database Master1) 1~1000번 사용자
+* 컴퓨터3(Middleware)
+* 컴퓨터4(Database Slave1) Database Master의 내용 복제
+* 컴퓨터5(Database Slave2) Database Master의 내용 복제
+* 컴퓨터6(Database Master2) 2000~3000번 사용자
 
 이렇게 복잡해짐.
 
@@ -569,13 +569,13 @@ amis에서 오른쪽 누르고 lanuch를 누르면 인스턴스를 선택할수 
 
 하지만 미들웨어 쪽에서 컴퓨터가 느려진다??? 데이터베이스는 신경 안써도 되는데... 마찬가지로 똑같은 방법으로 새로운 컴퓨터를 장만하고 그쪽으로 미들웨어를 설치한다.
 
-컴퓨터1(WebServer)
-컴퓨터2(Database Master1) 1~1000번 사용자
-컴퓨터3(Middleware)
-컴퓨터4(Database Slave1) Database Master의 내용 복제
-컴퓨터5(Database Slave2) Database Master의 내용 복제
-컴퓨터6(Database Master2) 2000~3000번 사용자
-컴퓨터7(Middleware)
+* 컴퓨터1(WebServer)
+* 컴퓨터2(Database Master1) 1~1000번 사용자
+* 컴퓨터3(Middleware)
+* 컴퓨터4(Database Slave1) Database Master의 내용 복제
+* 컴퓨터5(Database Slave2) Database Master의 내용 복제
+* 컴퓨터6(Database Master2) 2000~3000번 사용자
+* 컴퓨터7(Middleware)
 
 웹서버가 한번은 컴퓨터3에 한번은 컴퓨터7에 나눠서 작업해줌.
 
