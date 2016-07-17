@@ -790,7 +790,7 @@ MY AMIs라는게 있음. (여러분이 생성한 이미지들) 우리가 오토�
 
 그리고 이름 설정하고 넥스트.. 스토리지 선택하고 넥스트. 시큐어티 그룹 설정하고 넥스트. 생성.
 
-### Amazon EC2 AutoScaling 소개
+### Amazon EC2 AutoScaling(Launch Configuration) 생성
 
 이전시간에 Launch Configurations을 만듬.
 
@@ -815,3 +815,34 @@ Keep this group at its initail group 초기의 지정해 둔 사이즈를 유지
 
 Use scaling pollicies to adjust the capacity of this group 컴퓨터의 필요에 따라 늘리고 줄이고 하는 부분
 
+### AutoScaling 생성 2
+
+Use scaling pollicies to adjust the capacity of this group 컴퓨터의 필요에 따라 늘리고 줄이고 하는 부분
+
+오토스케일링이라고 하는 것을 어떤 관점으로 보는 거에 따라 전혀 다르게 봄.
+
+하한과 상한을 정할 수 있음. 
+
+Increate Group Size
+
+오토 스케일링이 동작할때 어떨때에 증가할것이냐 감소할 것이냐를 지정 할 수 있음.
+
+Execute pollicy when에 오토스케일링을 통해서 만드는 인스턴스를 AWS 에서 감시. 그 감시를 하는 과정에서 인스턴스들이 어떤 특정한 상태에
+
+도달했을때 알람이 오토스케일링에게 전달됨. CPU Utilization (CPU 점유율)
+
+Take the action 경고가 울릴때 실행하는 것. 
+
+Decreate Group Size 
+
+인스턴스를 삭제하는 조건. 위와 마찬가지로 설정 할 수 있음 
+
+그다음에 Next 하고
+
+notification설정을 할 수 있음 (오토스케일링 될때 통보받을 수단 선택 가능)
+
+넥스트 넥스트 해서 만들 수 있음
+
+우리가 ELB에게 트래픽을 줘서 스트래스를 주면 CPU 점유율이 일정 수준 이상이되면 오토스케일링이 동작되서 순차적으로 인스턴스가
+
+생성될것임. 그리고 트래픽이 줄어들면 인스턴스는 자동으로 삭제 될것.
