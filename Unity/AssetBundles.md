@@ -10,9 +10,18 @@
 
 [공식에셋] (https://www.assetstore.unity3d.com/#!/content/45836)
 
+[공식 메뉴얼] (http://docs.unity3d.com/kr/current/Manual/AssetBundlesIntro.html)
+
 ## 정리된 블로그
 
 http://dongin2009.blog.me/
 
-## 관련 팁들
+http://forum.unity3d.com/threads/new-assetbundle-build-system-in-unity-5-0.293975/
 
+http://icoder.tistory.com/177
+
+## youtube 링크
+
+https://www.youtube.com/watch?v=gVUgF2ZHveo
+
+## 관련 팁들
