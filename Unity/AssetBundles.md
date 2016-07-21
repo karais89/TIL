@@ -20,8 +20,12 @@ http://forum.unity3d.com/threads/new-assetbundle-build-system-in-unity-5-0.29397
 
 http://icoder.tistory.com/177
 
+http://hoys.tistory.com/30
+
 ## youtube 링크
 
 https://www.youtube.com/watch?v=gVUgF2ZHveo
 
 ## 관련 팁들
+
+http://kukuta.tistory.com/192
